@@ -4,6 +4,12 @@
 *.dll
 *.so
 *.dylib
+*.idea
+.DS_Store
+go/bin
+go/pkg
+go/src/github.com
+go/src/gopkg.in
 
 # Test binary, build with `go test -c`
 *.test
