@@ -1,16 +1,11 @@
 package routers
 
 import (
-	"hello/controllers"
 	"github.com/astaxie/beego"
-	"github.com/satori/go.uuid"
 	"github.com/astaxie/beego/context"
+	"github.com/satori/go.uuid"
+	"hello/controllers"
 )
-
-// import (
-// 	"github.com/astaxie/beego/context"
-// 	"github.com/satori/go.uuid"
-// )
 
 func init() {
 	beego.InsertFilter("*", beego.BeforeExec, func(ctx *context.Context){

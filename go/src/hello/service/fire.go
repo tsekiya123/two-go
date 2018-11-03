@@ -2,14 +2,24 @@ package service
 
 import (
 	"github.com/astaxie/beego"
-)
-import (
 	"github.com/astaxie/beego/context"
-	// "github.com/astaxie/beego"
+	"hello/models"
 )
-type Dog struct {
-	Ctx *context.Context
+
+type AnimalActionService interface {
+	GetFire() models.Fire
+	Cry() string
 }
-func (d *Dog) Cry() {
-	beego.Info("わんわん", d.Ctx.Input.GetData("requestid"))
+
+func CryAll(ctx *context.Context) {
+	var dog, cat AnimalActionService
+	dog = &models.Dog{}
+	cat = &models.Cat{}
+	beego.Info("温度：", dog.GetFire())
+	beego.Info("鳴声：", dog.Cry())
+
+	beego.Info("温度：", cat.GetFire())
+	beego.Info("鳴声：", cat.Cry())
+
+	beego.Info("requestid: ", ctx.Input.GetData("requestid"))
 }
