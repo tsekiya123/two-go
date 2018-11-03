@@ -5,6 +5,8 @@ import (
 	"github.com/astaxie/beego"
 )
 
+var ConstString = "HOGEHOGEHOGEHOGEHOGEHOGE"
+
 func main() {
 	beego.Run()
 }

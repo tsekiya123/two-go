@@ -6,17 +6,14 @@ import (
 )
 
 type FireController struct {
-	beego.Controller
+	BaseController
 }
 
 func (c *FireController) Get() {
+	beego.Info("requestid in controller: ", c.Ctx.Input.GetData("requestid"))
 
-	beego.Info("FireController: hogehoge")
-	beego.Info("Get: ", c.Ctx.Input.GetData("requestid"))
-
-	//dog := service.Dog{}
-	//dog.Ctx = c.Ctx
-	service.CryAll(c.Ctx)
+	//service.CryAll(c.Ctx)
+	service.GetFire(c.Ctx)
 
 	c.Data["json"] = map[string]interface{}{"name": "fire🔥"}
 	c.ServeJSON()

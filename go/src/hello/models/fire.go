@@ -7,6 +7,10 @@ type Fire struct {
 
 type Dog struct {}
 
+func (d *Dog) hoge() interface{} {
+	panic("implement me")
+}
+
 func (d *Dog) Cry() string{
 	return "わんわん"
 }
@@ -19,7 +23,6 @@ func (d *Dog) GetFire() Fire{
 }
 
 type Cat struct {}
-
 
 func (d *Cat) Cry() string{
 	return "にゃんにゃん"

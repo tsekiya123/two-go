@@ -3,6 +3,7 @@ package service
 import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
+	"hello/infrastructure/repository"
 	"hello/models"
 )
 
@@ -21,5 +22,10 @@ func CryAll(ctx *context.Context) {
 	beego.Info("温度：", cat.GetFire())
 	beego.Info("鳴声：", cat.Cry())
 
-	beego.Info("requestid: ", ctx.Input.GetData("requestid"))
+	beego.Info("requestid in service: ", ctx.Input.GetData("requestid"))
+}
+
+func GetFire(ctx *context.Context) models.Fire {
+	beego.Info("requestid in service: ", ctx.Input.GetData("requestid"))
+	return repository.GetFireForRepository(ctx)
 }

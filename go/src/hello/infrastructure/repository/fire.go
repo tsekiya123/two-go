@@ -1,7 +1,16 @@
 package repository
 
-import "hello/models"
+import (
+	"github.com/astaxie/beego/context"
+	"hello/infrastructure/repositoryImpl"
+	"hello/models"
+)
 
 type FireRepository interface {
-	GetFire() models.Fire
+	GetFire(ctx *context.Context) models.Fire
+}
+
+func GetFireForRepository(ctx *context.Context) models.Fire {
+	impl := repositoryImpl.NewFireRepositoryImpl(ctx)
+	return impl.GetFire()
 }
